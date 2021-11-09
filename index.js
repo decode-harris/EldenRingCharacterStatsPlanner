@@ -1,4 +1,9 @@
 let counter = 0; // set a value for starting attributes
+let allAttributeValues = document.querySelectorAll('.number'); // select all the attribute values
+// for(let i = 0; i < allAttributeValues.length; i++) {allAttributeValues[i].innerHTML = 0}; // set all stat attribute values to zero [ converted to clear function ]
+
+let level = document.querySelector('.level'); // declare the character level variable
+level.innerHTML = 1; // set a default starting level for prototype application view
 
 /*
     Button Click Event [ increaseAttributeValue ]
@@ -26,6 +31,7 @@ plusButtons.forEach(element => {
         // // validate if counter value if below [ hardCapValue = 60 stat points ]
         if(counter <= 59) {
             counter++; // increase the counter value by 1 [ unit or stat ]    
+            level.innerHTML++;
         }
         currentValue.innerHTML = counter; // re-assign new attribute value to application
 
@@ -52,7 +58,7 @@ minusButtons.forEach(element => {
         console.log(currentParent); // test the selection of the current parent element
 
         let currentValue = currentParent.querySelector('.number'); // select the current value based on the parent element
-        console.log(currentValue); // test the current value data retrieval method
+        // console.log(currentValue); // test the current value data retrieval method
         counter = currentValue.innerHTML; // assign the current attribute value to the counter element [ number ]
 
         if (counter == 0) { // validate current counter value
@@ -62,6 +68,9 @@ minusButtons.forEach(element => {
             counter = counter - 1; // decrease the counter value by 1 [ unit or stat ]
             currentValue.innerHTML = counter; // re-assign new attribute value to application
             console.log(counter); // test the counter element data
+
+            let currentLevel = level.innerHTML;
+            level.innerHTML = currentLevel - 1;
         }
     
     });
@@ -69,13 +78,13 @@ minusButtons.forEach(element => {
 
 
 clearAttributeStats = () => {
-    let allAttributeValues = document.querySelectorAll('.number'); // select all the attribute values
     for(let i = 0; i < allAttributeValues.length; i++) {
         allAttributeValues[i].innerHTML = 0; // set all selected attribute values to 0 [ zero ]
+        level.innerHTML = 0; // set level to default value of 0 [ zero ] or unselected
     }
     console.log('Function : ClearAttributeStats active'); // test the function has been initiated
 };
-
+clearAttributeStats();
 /*
     Button Click Event [ clearButton ]
 
@@ -97,3 +106,5 @@ resetAttributeStats = () => {
     // 4. display a message to the application 
 
 };
+
+
