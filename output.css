@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --wireframe: 2px solid darkblue;
+  --debugging: 2px solid darkred;
+  --component: 2px solid limegreen;
+}
+
+/* main application wrapper */
+main {
+  height: 100vh;
+  width: 100%;
+  background: #bebebe;
+}
+
+/* sectioned content container */
+section {
+  position: relative;
+}
+section .heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border: var(--component);
+}
+section .text {
+  font-size: 0.9rem;
+  text-align: right;
+}
+section h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0.5rem;
+  border-bottom: 2px solid #000;
+}
+
+.list {
+  padding: 1rem;
+  border: var(--wireframe);
+}
+.list .items {
+  display: flex;
+  justify-content: space-between;
+  border: var(--wireframe);
+  width: 100%;
+  max-width: 400px;
+  padding: 0.5rem;
+}
+
+.attribute {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 60%;
+  border: var(--component);
+}
+.attribute .title {
+  padding-left: 0.5rem;
+}
+
+.interaction {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 40%;
+  font-weight: bold;
+  border: var(--debugging);
+}
+.interaction .btn {
+  width: 33%;
+  height: 100%;
+}
+.interaction .number {
+  padding: 0.3rem;
+  width: 33%;
+  border: var(--component);
+}
+
+.title {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.number {
+  width: 20%;
+  text-align: center;
+}
+
+.controls {
+  height: 10vh;
+  border: var(--wireframe);
+}
+.controls .buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+.controls .btn {
+  border: var(--component);
+  border-radius: 8px;
+  padding: 0.5rem;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+/*# sourceMappingURL=output.css.map */
