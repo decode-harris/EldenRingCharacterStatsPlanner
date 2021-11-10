@@ -76,26 +76,6 @@ minusButtons.forEach(element => {
     });
 });
 
-clearAttributeStats = () => {
-    for(let i = 0; i < allAttributeValues.length; i++) {
-        allAttributeValues[i].innerHTML = 0; // set all selected attribute values to 0 [ zero ]
-        level.innerHTML = 0; // set level to default value of 0 [ zero ] or unselected
-    }
-    console.log('Function : ClearAttributeStats active'); // test the function has been initiated
-};
-clearAttributeStats();
-/*
-    Button Click Event [ clearButton ]
-
-    Initiates the 'clearAttributeStats' function
-    Selects all the attribute values in the application list
-    Set all the attribute values to 0 [ zero ]
-
-*/
-let clearButton = document.querySelector('#clearButton');
-clearButton.addEventListener('click', ()=> { clearAttributeStats() });
-
-// function [ resetAttributeStats ]
 resetAttributeStats = () => {
 
     // 1. validate the current character selection
@@ -103,6 +83,123 @@ resetAttributeStats = () => {
     // 3. revert the current values to the selected character starting stats
     // 4. display a message to the application 
 
+    for(let i = 0; i < allAttributeValues.length; i++) {
+        allAttributeValues[i].innerHTML = 0; // set all selected attribute values to 0 [ zero ]
+        level.innerHTML = 0; // set level to default value of 0 [ zero ] or unselected
+    }
+    console.log('Function : resetAttributeStats active'); // test the function has been initiated
 };
+resetAttributeStats();
+/*
+    Button Click Event [ resetButton ]
+
+    Initiates the 'resetAttributeStats' function
+    Selects all the attribute values in the application list
+    Set all the attribute values to 0 [ zero ]
+
+*/
+let resetButton = document.querySelector('#resetButton');
+resetButton.addEventListener('click', ()=> { resetAttributeStats() });
 
 
+// gsap.from('#playableCharacters', {y: 900, duration: 0.1, opacity: 0});
+// application view state
+const playableCharacters = document.querySelector('#playableCharacters'); // declare the playableCharacters article element
+// playableCharacters.style.top = '100vh'; // style opacity for GSAP animations
+const attributesCalculator = document.querySelector('#attributesCalculator'); // declare the attributesCalculator section element
+
+const characterInformationButton = document.querySelector('#informationButton'); // 
+characterInformationButton.addEventListener('click', ()=> {
+    
+    if(playableCharacters.style.opacity == 0) {
+        characterInformationButton.innerHTML = 'calculator';
+        gsap.to('#playableCharacters', {y: 0, duration: 1, opacity: 1});
+        // gsap.to('#playableCharacters', {x: 0, duration: 1});
+
+        // playableCharacters.style.top = '0vh'; // move the element to top of page [ absolute positioning ]
+        
+    }
+    else {
+        characterInformationButton.innerHTML = 'characters';
+        gsap.to('#playableCharacters', {y: 900, duration: 0.8, opacity: 0});
+        // playableCharacters.style.display = 'none'; // remove the playable characters tab
+    }
+    
+});
+
+
+let extendedInformation = document.querySelectorAll('.extendedInformation');
+// function [ removeExtendedInformation ]
+removeExtendedInformation = () => {
+    for(let i = 0; i < extendedInformation.length; i++) { // loop through all extended information elements
+        extendedInformation[i].style.display = 'none'; // remove them from view
+    }
+
+}
+removeExtendedInformation(); // init function onload
+
+startingAnimationPlayableCharacters = () => {
+
+    gsap.to('#playableCharacters', {y: 900, duration: 0.1, opacity: 0});
+}
+startingAnimationPlayableCharacters(); // init function onload
+
+
+
+/*
+    Article active panel exit button
+
+    Removes all 'active' classes from the article component.
+    Hides the current hidden-info element & the exit button 
+    on application view.
+
+*/
+let exitButton = document.querySelector('#exitButton'); // declare the application exit button
+exitButton.style.display = 'none'; // remove exit button from application view
+exitButton.addEventListener('click', ()=> {
+
+    // declare all active classes
+    let current = document.getElementsByClassName("active");
+    // validate all active classes
+    if (current.length > 0) { 
+        current[0].className = current[0].className.replace(" active", ""); // remove any active classes
+    }
+    exitButton.style.display = 'none'; // remove the exit button
+  
+    removeExtendedInformation(); // init remove [ extended information ] function
+
+});
+
+/* 
+    article information list module
+
+    validates a clicked panel element & either 
+    assigns or removes the 'active' class name
+
+*/
+let articleList = document.querySelector('#playableCharacters .list');
+console.log(articleList);
+var articleItems = articleList.getElementsByClassName("items");
+console.log(articleItems);
+// For Loop [ Article Items ]
+for (var i = 0; i < articleItems.length; i++) {
+    // click event [ all article items ]
+    articleItems[i].addEventListener("click", function() {
+    let current = document.getElementsByClassName("active");
+    
+    // validate any active classes
+    if (current.length > 0) { 
+        current[0].className = current[0].className.replace(" active", ""); // replace active class with empty string
+    }
+    for(let i = 0; i < extendedInformation.length; i++) {
+        extendedInformation[i].style.display = 'block';
+    }
+    this.className += " active"; // add the active class to 'this' clicked element
+    exitButton.style.display = 'block'; // display the active exit button
+
+
+
+    // extendedInformation.style.display = 'block'; // display the hidden information text
+
+    });
+}
