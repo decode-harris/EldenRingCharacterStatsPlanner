@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="output.css">
     <!-- JS : Attribute Adjustment -->
     <script defer src="index.js"></script>
+    <script defer src="classes.js"></script>
+    <script defer src="data.js"></script>
+
     
 </head>
 <body>
@@ -18,15 +21,52 @@
     <!-- main applicatiom wrapper -->
     <main class="main">
 
+        <!-- application header -->
+        <header class="header">
+            <h2>elden ring</h2>
+            <p class="text">character attribute calculator.</p>
+        </header>
+        <!-- application header -->
+
+        <!-- application controls -->
+        <aside class="controls">
+
+            <!-- control button [ clear stats ] -->
+            <button class="btn" id="clearButton">clear stats</button>
+            <!-- control button [ clear stats ] -->
+
+            <!-- control button [ reset stats ] -->
+            <button class="btn" id="resetButton">reset stats</button>
+            <!-- control button [ reset stats ] -->
+        
+        </aside>
+        <!-- application controls -->
+
         <!-- player stats -->
         <section class="container" id="stats">
 
-            <div class="heading">
+            <!-- stats overview -->
+            <div class="overview">
 
-                <h2>Stat Allocation</h2>
-                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </div>
+                <!-- overview panels -->
+                <div class="panel">
+                    <!-- selected character image -->
+                    <img src="" alt="" class="characterClassImage">
+                    <!-- selected character image -->
+
+                    <!-- selected characer class -->
+                    <h4 class="characterClassName"></h4>
+                    <!-- selected characer class -->    
+                </div>
+                <div class="panel">
+                    <!-- character level -->
+                    <span class="level"></span>
+                    <!-- character level -->
+                </div>
+                <!-- overview panels -->
             
+            </div>
+            <!-- stats overview -->
 
             <!-- list -->
             <ul class="list">
@@ -42,7 +82,7 @@
                     <!-- interaction elements -->
                     <div class="interaction">
                         <button class="btn minusButtons">-</button>
-                        <span class="number">14</span>
+                        <span class="number"></span>
                         <button class="btn plusButtons">+</button>
                     </div>
                     <!-- interaction elements -->
@@ -57,7 +97,7 @@
                     <!-- interaction elements -->
                     <div class="interaction">
                         <button class="btn minusButtons">-</button>
-                        <span class="number">10</span>
+                        <span class="number"></span>
                         <button class="btn plusButtons">+</button>
                     </div>
                     <!-- interaction elements -->
@@ -72,7 +112,7 @@
                     <!-- interaction elements -->
                     <div class="interaction">
                         <button class="btn minusButtons">-</button>
-                        <span class="number">10</span>
+                        <span class="number"></span>
                         <button class="btn plusButtons">+</button>
                     </div>
                     <!-- interaction elements -->
@@ -87,7 +127,7 @@
                     <!-- interaction elements -->
                     <div class="interaction">
                         <button class="btn minusButtons">-</button>
-                        <span class="number">10</span>
+                        <span class="number"></span>
                         <button class="btn plusButtons">+</button>
                     </div>
                     <!-- interaction elements -->
@@ -103,7 +143,7 @@
                     <!-- interaction elements -->
                     <div class="interaction">
                         <button class="btn minusButtons">-</button>
-                        <span class="number">10</span>
+                        <span class="number"></span>
                         <button class="btn plusButtons">+</button>
                     </div>
                     <!-- interaction elements -->
@@ -119,7 +159,7 @@
                     <!-- interaction elements -->
                     <div class="interaction">
                         <button class="btn minusButtons">-</button>
-                        <span class="number">8</span>
+                        <span class="number"></span>
                         <button class="btn plusButtons">+</button>
                     </div>
                     <!-- interaction elements -->
@@ -135,7 +175,7 @@
                     <!-- interaction elements -->
                     <div class="interaction">
                         <button class="btn minusButtons">-</button>
-                        <span class="number">8</span>
+                        <span class="number"></span>
                         <button class="btn plusButtons">+</button>
                     </div>
                     <!-- interaction elements -->
@@ -151,7 +191,7 @@
                     <!-- interaction elements -->
                     <div class="interaction">
                         <button class="btn minusButtons">-</button>
-                        <span class="number">10</span>
+                        <span class="number"></span>
                         <button class="btn plusButtons">+</button>
                     </div>
                     <!-- interaction elements -->
@@ -161,21 +201,56 @@
             </ul>
             <!-- list -->
 
-            <!-- application controls -->
-            <aside class="controls">
-
-                <!-- buttons container -->
-                <div class="buttons">
-                    <button class="btn" id="clearButton">clear stats</button>
-                    <button class="btn" id="resetButton">reset stats</button>
-                </div>
-                <!-- buttons container -->
-
-            </aside>
-            <!-- application controls -->
-
+            <!-- selection form -->
+            <form action="" class="form">
+                <!-- label : remove on mobile -->
+                <label for="characterSelection">choose a class :</label>
+                <!-- label : remove on mobile -->
+                
+                <!-- character selection -->
+                <select name="characterSelection" id="characterSelection">
+                    <!-- select : options -->
+                    <option value="default" id="defaultListItem">class selection</option>
+                    <option value="knight">knight</option>
+                    <option value="mercenary">mercenary</option>
+                    <option value="warrior">warrior</option>
+                    <option value="herald">herald</option>
+                    <option value="thief">thief</option>
+                    <option value="assassin">assassin</option>
+                    <option value="sorcerer">sorcerer</option>
+                    <option value="pyromancy">pyromancy</option>
+                    <option value="cleric">cleric</option>
+                    <option value="deprived">deprived</option>
+                    <!-- select : options -->
+                </select>
+                <!-- character selection -->
+            </form>
+            <!-- selection form -->
+        
         </section>
         <!-- player stats -->
+
+        <!-- class selection -->
+        <section class="container" id="classes" style="display: none;">
+
+            <!-- character classes selection list -->
+            <ul class="list">
+                <!-- character class choices -->
+                <li class="items"><span class="eClass"></span></li>
+                <li class="items"><span class="eClass"></span></li>
+                <li class="items"><span class="eClass"></span></li>
+                <li class="items"><span class="eClass"></span></li>
+                <li class="items"><span class="eClass"></span></li>
+                <li class="items"><span class="eClass"></span></li>
+                <li class="items"><span class="eClass"></span></li>
+                <li class="items"><span class="eClass"></span></li>
+                <li class="items"><span class="eClass"></span></li>
+                <li class="items"><span class="eClass"></span></li>
+                <!-- character class choices -->
+            </ul>
+
+        </section>
+        <!-- class selection -->
     
     </main>
     <!-- main applicatiom wrapper -->
