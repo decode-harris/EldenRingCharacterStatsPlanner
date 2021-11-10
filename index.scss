@@ -1,0 +1,520 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Poppins:wght@200&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root {
+    // dev borders
+    --wireframe: 2px solid darkblue;
+    --debugging: 2px solid darkred;
+    --component: 2px solid limegreen;
+    
+    // base colors
+    --clr-black: #000;
+    --clr-white: #FFF;
+    
+    // base fonts
+    --font-title: 'Kanit', sans-serif; // font-family: 'Kanit', sans-serif;
+    --font-text: 'Poppins', sans-serif; // font-family: 'Poppins', sans-serif;
+    
+}
+
+/* 
+
+    main application wrapper
+    
+    contains all application elements & components
+
+    Main 
+        Header - Application Header         [ 15 vh ]
+        Aside - Component Controls          [ 05 vh ]
+        Section - Application Interaction   [ 70 vh ]
+        Footer - Application Information    [ 15 vh ]
+*/
+main {
+    height: 100%;
+    width: 100%;
+    // padding: 1rem;
+    background: rgb(190, 190, 190);
+    font-family: var(--font-text);
+    position: relative;
+    z-index: 1;
+    max-height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+
+    h1,h2,h3,h4,h5,h6 {font-family: var(--font-title); text-transform: uppercase;}
+    
+    // application background properties
+    background-image: url('background.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom;
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba($color: #000000, $alpha: 0.6);
+        z-index: 2;
+    }
+}
+
+/* 
+    application header
+
+    reactive title & description when switching
+    between application views
+
+*/
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 15vh;
+    padding: 1rem;
+    z-index: 3;
+    // background: rgba($color: #000000, $alpha: 0.6);
+    color: var(--clr-white);
+    h2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        text-align: center;
+        color: var(--clr-white);
+        z-index: 3;
+    }
+    .text {
+        font-size: 0.85rem;
+        text-align: center;
+        font-style: italic;
+        z-index: 3;
+    }
+}
+
+// aside controls container
+aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 3;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    height: 10vh;
+    width: 80px;
+    
+    // control buttons
+    .btn {
+        background: var(--clr-white);
+        border: 1px solid var(--clr-black);
+        border-radius: 8px;
+        color: var(--clr-black);
+        padding: 0.5rem;
+        letter-spacing: 2px;
+        text-transform: capitalize;
+        transition: 300ms all ease-in;
+        width: 100%;
+        
+    }
+    .btn:hover {
+        transition: 300ms all ease-in-out;
+        background: #FFF;
+        color: #000;
+    }
+}
+
+/* 
+    sectioned content container 
+
+    main application component container
+    houses the interactive & reactive user components
+
+*/
+section {
+    position: relative; // set container to position relative
+    // background: rgba($color: #000000, $alpha: 0.6);
+    min-height: 70vh;
+    padding: 1rem;
+    z-index: 3;
+    // player statistics list
+    .list {
+        padding: 0.5rem;
+        background: transparent;
+        border: 1px solid var(--clr-black);
+        color: var(--clr-white);
+        margin-top: 0.5rem;
+        
+        // list items [ display as flex ]
+        .items {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 400px;
+            padding: 0.25rem;
+            // character attribute descriptions
+            .attribute {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                width: 60%;
+            }
+            // list item span elements
+            .title {
+                font-size: 1rem;
+                letter-spacing: 1px;
+                text-transform: capitalize;
+            }
+        }
+    }
+
+    // attributes overview
+    .overview {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 15vh;
+        padding: 0.2rem;
+        // overview panels
+        .panel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .panel:nth-child(1) {
+            justify-content: space-evenly;
+            width: 70%;
+        }
+        .panel:nth-child(2) {
+            flex-direction: column;
+            width: 30%;
+        }
+        // mobile image restrictions
+        img {
+            max-height: 100px;
+            max-width: 280px;
+        }
+        h4 {
+            color: var(--clr-white);
+            letter-spacing: 2px;
+            text-decoration: underline;
+        }
+    }
+}
+
+/*
+    Article information component
+
+    Contains character class information tab.
+    Hidden from application view onload & cctivated 
+    via footer action button.
+
+*/
+article {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    height: 90vh;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: rgba($color: #000000, $alpha: 0.6);
+
+    // article active panel [ exitButton ]
+    #exitButton {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 5;
+        width: 100px;
+        height: 100px;
+        
+        background: transparent;
+        border: none;
+        color: yellow;
+        font-size: 1.65rem;
+        font-weight: bold;
+        
+        text-shadow: 2px 2px var(--clr-black);
+        text-transform: uppercase;
+    }
+
+    // information article list
+    .list {
+        display: grid;
+        gap: 5px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(50px, auto);
+        height: 100%;
+        width: 100%;
+        // information article items
+        .items {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+            width: 100%;
+            background-position: center; // base background properties
+            background-size: cover; // base background properties
+            transition: 300ms all ease;
+            
+        }
+        // article item background images
+        .items:nth-child(1) {background-image: url('Assets/class_prophet.PNG');}
+        .items:nth-child(2) {background-image: url('Assets/class_warrior.PNG');}
+        .items:nth-child(3) {background-image: url('Assets/class_bloodwolf.PNG');}
+        .items:nth-child(4) {background-image: url('Assets/class_champion.PNG');}
+        .items:nth-child(5) {background-image: url('Assets/class_enchantedknight.PNG');}
+
+        // items active properties [ alter animations via GSP on production build ]
+        .items.active {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            transition: 220ms all ease-in;
+            
+        }
+    }
+}
+
+/*
+    Application footer component
+
+    Contains the action button to switch between
+    application views / states. Two states are
+    currently developed, Calculator & Characters.
+
+*/
+footer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    z-index: 5;
+    
+    // footer action button
+    .btn {
+        border: 1px solid var(--clr-white);
+        border-radius: 8px;
+        background: transparent;
+        color: var(--clr-white);
+        height: 60px;
+        letter-spacing: 2px;
+        padding: 0.5rem;
+        text-transform: capitalize;
+        width: 150px;
+        margin-top: 1rem;
+    }
+}
+
+/*
+    Character selection form [ drop-down button ]
+
+    A select element with character class options.
+    starting character for the videogame Elden Ring.
+    An on-change event is attached to the select element
+    and will trigger the assign selected stats function.
+
+*/
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    height: 10vh;
+    z-index: 4;
+    // remove label on mobile view
+    label {
+        font-size: 1.2rem;
+        text-transform: capitalize;
+        margin-bottom: 1rem;
+        display: none;
+    }
+    // test styles for select & options [ drop down ]
+    select#characterSelection {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 50px;
+        width: 100%;
+        max-width: 250px;
+        
+        background: transparent;
+        color: var(--clr-white);
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+    option {
+        text-transform: capitalize;
+    }
+    select > option {
+        background: rgba($color: #000000, $alpha: 0.6);
+        width: 100%;
+        max-width: 200px;
+        text-transform: capitalize;
+        letter-spacing: 0.1rem;
+        padding-bottom: 1rem;
+        text-transform: capitalize;
+    }
+}
+
+/*
+    User interaction components
+
+    Stat allocation action buttons. Attached to an event
+    listener which will reactive update player character
+    information on each user action.
+*/
+.interaction {
+    display: flex; 
+    justify-content: space-evenly;
+    align-items: center;
+    width: 40%;
+    
+    // interaction button elements
+    .btn {
+        background: transparent;
+        border: 1px solid var(--clr-white);
+        border-radius: 8px;
+        color: var(--clr-white);
+        font-size: 1rem;
+        transition: 200ms all ease-in;
+        width: 33%;
+        height: 100%;
+    }
+    .btn:hover {
+        background: transparent;
+        transition: 200ms all ease-in;
+        background: var(--clr-white);
+        color: var(--clr-black);
+        border: 1px solid var(--clr-black);
+    }
+
+    // interaction value element
+    .number {
+        padding: 0.3rem;
+        width: 33%;
+        text-align: center;
+    }
+}
+
+// character player level
+.level {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+
+    border: 1px solid var(--clr-white);
+    border-radius: 8px;
+    color: var(--clr-white);
+    font-size: 1.7em;
+}
+
+
+#playableCharacters {
+    color: var(--clr-white);
+
+    // dev border
+    border: var(--component);
+
+    .items h3 {
+        text-shadow: 2px 2px rgb(99, 89, 5);
+    }
+    
+    .items.active {
+        h3 {
+            transform: scale(2);
+            padding-bottom: 0.5rem;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// character information [ un-unsed : remove ]
+#classInformation {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(50px, auto);
+
+    // information grid [ panel ]
+    .panel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        border: var(--component);
+        width: 100%;
+    }
+    .panel:nth-child(1) {
+        grid-column: span 3;
+    }
+    .panel:nth-child(2) {
+        grid-column: span 3;
+    }
+    .panel:nth-child(3) {
+        grid-column: span 6;
+    }
+    // information [ image ]
+    img {
+        max-height: 250px;
+
+    }
+    // information [ text ]
+    .text {
+        font-size: 1.35rem;
+        text-transform: uppercase;
+        padding-bottom: 2px;
+        letter-spacing: 0.5px;
+        border-bottom: 2px solid #000;
+    }
+    // ul info list [ placeholder for data display ]
+    .info {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        .infos {
+            font-size: 1.2rem;
+            padding-left: 1rem;
+            padding-bottom: 1rem;
+        }
+        
+    }
+    
+}
