@@ -1,49 +1,6 @@
 const attributes = [ 'vigor', 'mind', 'endurance', 'strength', 'dexterity', 'intelligence', 'faith', 'arcane' ]; // set an array for the attributes
 const classes = [ 'knight', 'mercenary', 'warrior', 'herald', 'thief', 'assassin', 'sorcerer', 'pyromancy', 'cleric', 'deprived' ]; // set an array for character classes
 
-// select all the eClass elements [ placeholder list items ]
-let eClass = document.querySelectorAll('.eClass');
-// console.log(eClass);
-
-for( let i = 0; i < classes.length; i++) { // loop through all array [ classes ] data values
-    // console.log(classes[i]);
-
-    for( let i = 0; i < eClass.length; i++) { // loop through all [ eClass ] elements
-        eClass[i].innerHTML = classes[i]; // assign the classes to the 
-    }
-}
-
-let characterClassList = document.querySelector('#classes .list'); // select the classes list element
-// console.log(characterClassList);
-let characterClassListItems = characterClassList.querySelectorAll('.items'); // select all the list item elements
-// console.log(characterClassListItems);
-
-// forEach Loop
-characterClassListItems.forEach(element => { 
-    // test for each loop
-    console.log(element);
-
-    // click event [ CharacterClassListItems ]
-    element.addEventListener('click', ()=> {
-
-        // validate selected character class
-        if (element.firstChild.innerHTML === 'knight') { assignKnightStats() } // init [ assignStats ] function
-        if (element.firstChild.innerHTML === 'mercenary') { assignMercenaryStats() }
-        if (element.firstChild.innerHTML === 'warrior') { assignWarriorStats() }
-        if (element.firstChild.innerHTML === 'herald') { assignHeraldStats() }
-        if (element.firstChild.innerHTML === 'thief') { assignThiefStats() }
-        if (element.firstChild.innerHTML === 'assassin') { assignAssassinStats() }
-        if (element.firstChild.innerHTML === 'sorcerer') { assignSorcererStats() }
-        if (element.firstChild.innerHTML === 'pyromancy') { assignPyromancyStats() }
-        if (element.firstChild.innerHTML === 'cleric') { assignClericStats() }
-        if (element.firstChild.innerHTML === 'deprived') { assignDeprivedStats() }
-
-        // init the function [ set character class attributes ]
-        console.log('character class selected : ' + element.firstChild.innerHTML);
-
-    });
-});
-
 // create an object for the character class attributes
 let characterClassObject = {
     Vigor: '',
@@ -63,7 +20,6 @@ assignKnightStats = () => {
     let knightObject = new Object(characterClassObject); // create a new object for current selected player class
     level.innerHTML = knightStats[0] + knightStats[1];
     level.innerHTML = 9; // set level for selected character class
-    console.log(level);
     
     for(let i = 0; i < knightStats.length; i++) { // loop through all the knight stats
         // assign the selected character class starting values to object
@@ -75,7 +31,6 @@ assignKnightStats = () => {
         knightObject.Intelligence = knightStats[5];
         knightObject.Faith = knightStats[6];
         knightObject.Arcane = knightStats[7];
-        
         // console.log(knightStats[i]); // test looping through stats successful
     }
     
@@ -91,10 +46,8 @@ assignMercenaryStats = () => {
     let mercenaryStats = [8, 10, 11, 16, 12, 10, 11, 8, 9]
     let mercenaryObject = new Object(characterClassObject);
     level.innerHTML = 8; // set level for selected character class
-    console.log(level);
-
+    
     for(let i = 0; i < mercenaryStats.length; i++) {
-
         // assign the selected character class starting values to object
         mercenaryObject.Vigor = mercenaryStats[0];
         mercenaryObject.Mind = mercenaryStats[1];
@@ -104,9 +57,7 @@ assignMercenaryStats = () => {
         mercenaryObject.Intelligence = mercenaryStats[5];
         mercenaryObject.Faith = mercenaryStats[6];
         mercenaryObject.Arcane = mercenaryStats[7];
-        
         // console.log(mercenaryStats[i]); // test looping through stats successful
-        
     }
 
     for(let i = 0; i < allAttributeValues.length; i++) { // loop through all attribute values
@@ -122,10 +73,8 @@ assignWarriorStats = () => {
     let warriorObject = new Object(characterClassObject);
 
     level.innerHTML = 7; // set level for selected character class
-    console.log(level);
-
+    
     for(let i = 0; i < warriorStats.length; i++) {
-
         // assign the selected character class starting values to object
         warriorObject.Vigor = warriorStats[0];
         warriorObject.Mind = warriorStats[1];
@@ -135,7 +84,6 @@ assignWarriorStats = () => {
         warriorObject.Intelligence = warriorStats[5];
         warriorObject.Faith = warriorStats[6];
         warriorObject.Arcane = warriorStats[7];
-        
         // console.log(mercenaryStats[i]); // test looping through stats successful
         
     }
@@ -153,10 +101,8 @@ assignHeraldStats = () => {
     let heraldObject = new Object(characterClassObject);
 
     level.innerHTML = 9; // set level for selected character class
-    console.log(level);
-
+    
     for(let i = 0; i < heraldStats.length; i++) {
-
         // assign the selected character class starting values to object
         heraldObject.Vigor = heraldStats[0];
         heraldObject.Mind = heraldStats[1];
@@ -166,7 +112,6 @@ assignHeraldStats = () => {
         heraldObject.Intelligence = heraldStats[5];
         heraldObject.Faith = heraldStats[6];
         heraldObject.Arcane = heraldStats[7];
-        
         // console.log(mercenaryStats[i]); // test looping through stats successful
         
     }
@@ -184,10 +129,8 @@ assignThiefStats = () => {
     let thiefObject = new Object(characterClassObject);
 
     level.innerHTML = 5; // set level for selected character class
-    console.log(level);
-
+    
     for(let i = 0; i < thiefStats.length; i++) {
-
         // assign the selected character class starting values to object
         thiefObject.Vigor = thiefStats[0];
         thiefObject.Mind = thiefStats[1];
@@ -197,9 +140,7 @@ assignThiefStats = () => {
         thiefObject.Intelligence = thiefStats[5];
         thiefObject.Faith = thiefStats[6];
         thiefObject.Arcane = thiefStats[7];
-        
         // console.log(mercenaryStats[i]); // test looping through stats successful
-        
     }
 
     for(let i = 0; i < allAttributeValues.length; i++) { // loop through all attribute values
@@ -215,10 +156,8 @@ assignAssassinStats = () => {
     let assassinObject = new Object(characterClassObject);
 
     level.innerHTML = 10; // set level for selected character class
-    console.log(level);
-
+    
     for(let i = 0; i < assassinStats.length; i++) {
-
         // assign the selected character class starting values to object
         assassinObject.Vigor = assassinStats[0];
         assassinObject.Mind = assassinStats[1];
@@ -228,9 +167,7 @@ assignAssassinStats = () => {
         assassinObject.Intelligence = assassinStats[5];
         assassinObject.Faith = assassinStats[6];
         assassinObject.Arcane = assassinStats[7];
-        
         // console.log(mercenaryStats[i]); // test looping through stats successful
-        
     }
 
     for(let i = 0; i < allAttributeValues.length; i++) { // loop through all attribute values
@@ -246,8 +183,7 @@ assignSorcererStats = () => {
     let sorcererObject = new Object(characterClassObject);
 
     level.innerHTML = 6; // set level for selected character class
-    console.log(level);
-
+    
     for(let i = 0; i < sorcererStats.length; i++) {
 
         // assign the selected character class starting values to object
@@ -277,8 +213,7 @@ assignPyromancyStats = () => {
     let pyromancyObject = new Object(characterClassObject);
 
     level.innerHTML = 8; // set level for selected character class
-    console.log(level);
-
+    
     for(let i = 0; i < pyromancyStats.length; i++) {
 
         // assign the selected character class starting values to object
@@ -308,8 +243,7 @@ assignClericStats = () => {
     let clericObject = new Object(characterClassObject);
 
     level.innerHTML = 7; // set level for selected character class
-    console.log(level);
-
+    
     for(let i = 0; i < clericStats.length; i++) {
 
         // assign the selected character class starting values to object
@@ -339,8 +273,7 @@ assignDeprivedStats = () => {
     let deprivedObject = new Object(characterClassObject);
 
     level.innerHTML = 1; // set level for selected character class
-    console.log(level);
-
+    
     for(let i = 0; i < deprivedStats.length; i++) {
 
         // assign the selected character class starting values to object

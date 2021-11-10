@@ -76,7 +76,6 @@ minusButtons.forEach(element => {
     });
 });
 
-
 clearAttributeStats = () => {
     for(let i = 0; i < allAttributeValues.length; i++) {
         allAttributeValues[i].innerHTML = 0; // set all selected attribute values to 0 [ zero ]
@@ -95,7 +94,6 @@ clearAttributeStats();
 */
 let clearButton = document.querySelector('#clearButton');
 clearButton.addEventListener('click', ()=> { clearAttributeStats() });
-
 
 // function [ resetAttributeStats ]
 resetAttributeStats = () => {
