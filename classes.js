@@ -1,3 +1,13 @@
+
+/*
+    Alter classes for Elden Ring release.
+
+    Compile a true character object with all available data.
+
+    Refactor core application code into components or singular modules.
+
+*/
+
 const attributes = [ 'vigor', 'mind', 'endurance', 'strength', 'dexterity', 'intelligence', 'faith', 'arcane' ]; // set an array for the attributes
 const classes = [ 'knight', 'mercenary', 'warrior', 'herald', 'thief', 'assassin', 'sorcerer', 'pyromancy', 'cleric', 'deprived' ]; // set an array for character classes
 

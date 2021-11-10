@@ -9,12 +9,15 @@
 
     <!-- SCSS : Output -->
     <link rel="stylesheet" href="output.css">
-    <!-- JS : Attribute Adjustment -->
+    <!-- JS : Application Navigation -->
     <script defer src="index.js"></script>
+    <!-- JS : Character Classes -->
     <script defer src="classes.js"></script>
+    <!-- JS : Object Data -->
     <script defer src="data.js"></script>
+    <!-- Lib : GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
 
-    
 </head>
 <body>
 
@@ -31,19 +34,15 @@
         <!-- application controls -->
         <aside class="controls">
 
-            <!-- control button [ clear stats ] -->
-            <button class="btn" id="clearButton">clear stats</button>
-            <!-- control button [ clear stats ] -->
-
             <!-- control button [ reset stats ] -->
-            <button class="btn" id="resetButton">reset stats</button>
+            <button class="btn" id="resetButton">reset</button>
             <!-- control button [ reset stats ] -->
         
         </aside>
         <!-- application controls -->
 
-        <!-- player stats -->
-        <section class="container" id="stats">
+        <!-- attributes calculator -->
+        <section class="container" id="attributesCalculator">
 
             <!-- stats overview -->
             <div class="overview">
@@ -228,29 +227,100 @@
             <!-- selection form -->
         
         </section>
-        <!-- player stats -->
+        <!-- attributes calculator -->
 
-        <!-- class selection -->
-        <section class="container" id="classes" style="display: none;">
+        <!-- playable character -->
+        <article class="container" id="playableCharacters">
 
-            <!-- character classes selection list -->
+            <!-- playable characters [ list ] -->
             <ul class="list">
-                <!-- character class choices -->
-                <li class="items"><span class="eClass"></span></li>
-                <li class="items"><span class="eClass"></span></li>
-                <li class="items"><span class="eClass"></span></li>
-                <li class="items"><span class="eClass"></span></li>
-                <li class="items"><span class="eClass"></span></li>
-                <li class="items"><span class="eClass"></span></li>
-                <li class="items"><span class="eClass"></span></li>
-                <li class="items"><span class="eClass"></span></li>
-                <li class="items"><span class="eClass"></span></li>
-                <li class="items"><span class="eClass"></span></li>
-                <!-- character class choices -->
-            </ul>
+                <!-- list items -->
+                <li class="items">
+                    <h3>prophet</h3>
+                    
+                    <!-- extended information -->
+                    <div class="extendedInformation">
+                        <p class="text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, sit.
+                            <br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, sit.
+                        </p>
+                    </div>
+                    <!-- extended information -->
+                </li>
+                <li class="items">
+                    <h3>warrior</h3>
 
-        </section>
-        <!-- class selection -->
+                    <!-- extended information -->
+                    <div class="extendedInformation">
+                        <p class="text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, sit.
+                            <br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, sit.
+                        </p>
+                    </div>
+                    <!-- extended information -->
+                </li>
+                <li class="items">
+                    <h3>blood wolf</h3>
+
+                    <!-- extended information -->
+                    <div class="extendedInformation">
+                        <p class="text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, sit.
+                            <br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, sit.
+                        </p>
+                    </div>
+                    <!-- extended information -->
+                </li>
+                <li class="items">
+                    <h3>champion</h3>
+
+                    <!-- extended information -->
+                    <div class="extendedInformation">
+                        <p class="text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, sit.
+                            <br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, sit.
+                        </p>
+                    </div>
+                    <!-- extended information -->
+                </li>
+                <li class="items">
+                    <h3>enchanted knight</h3>
+
+                    <!-- extended information -->
+                    <div class="extendedInformation">
+                        <p class="text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, sit.
+                            <br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, sit.
+                        </p>
+                    </div>
+                    <!-- extended information -->
+                </li>
+                <!-- list items -->
+                <button class="btn" id="exitButton">x</button>
+            </ul>
+            <!-- playable characters [ list ] -->
+
+        </article>
+        <!-- playable character -->
+
+        <!-- application footer -->
+        <footer class="footer">
+
+            <!-- information button [ switch application views ] -->
+            <button class="btn" id="informationButton">characters</button>
+            <!-- information button [ switch application views ] -->
+        
+        </footer>
+        <!-- application footer -->
+
+        <!-- application overlay -->
+        <div class="overlay"></div>
+        <!-- application overlay -->
     
     </main>
     <!-- main applicatiom wrapper -->
