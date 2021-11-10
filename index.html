@@ -8,13 +8,13 @@
     <title>Elden Ring || Stats Calculator</title>
 
     <!-- SCSS : Output -->
-    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="src/css/output.css">
     <!-- JS : Application Navigation -->
-    <script defer src="index.js"></script>
+    <script defer src="src/js/index.js"></script>
     <!-- JS : Character Classes -->
-    <script defer src="classes.js"></script>
+    <script defer src="src/js/classes.js"></script>
     <!-- JS : Object Data -->
-    <script defer src="data.js"></script>
+    <script defer src="src/js/data.js"></script>
     <!-- Lib : GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
     <!-- Lib : Icons -->
@@ -47,41 +47,22 @@
         </aside>
         <!-- application controls -->
 
-        <!-- character overview [ === WORK-IN-PROGRESS === ] -->
-        <!-- character overview [ === WORK-IN-PROGRESS === ] -->
-        <section class="container" id="characterOverview">
-            <!-- stats overview -->
-            <div class="overview">
-
-                <!-- overview panels -->
-                <div class="panel">
-                    <!-- selected character image -->
-                    <img src="" alt="" class="characterClassImage">
-                    <!-- selected character image -->
-
-                    <!-- selected characer class -->
-                    <h4 class="characterClassName"></h4>
-                    <!-- selected characer class -->    
-                </div>
-                <div class="panel">
-                    <!-- character level -->
-                    <span class="level"></span>
-                    <!-- character level -->
-                </div>
-                <!-- overview panels -->
-            
-            </div>
-            <!-- stats overview -->
-        </section>
-        <!-- character overview [ === WORK-IN-PROGRESS === ] -->
-        <!-- character overview [ === WORK-IN-PROGRESS === ] -->
-
         <!-- attributes calculator -->
         <section class="container" id="attributesCalculator">
 
-            <!-- character class name [ mobile ] -->
-            <h3 class="characterClassName-mobile"></h3>
-            <!-- character class name [ mobile ] -->
+            <!-- details mobile -->
+            <div class="details-mobile">
+                <img src="" alt="" class="characterClassImage">
+                <!-- character class name [ mobile ] -->
+                <h3 class="characterClassName-mobile"></h3>
+                <!-- character class name [ mobile ] -->
+
+                <p class="text">
+                    LVL. <span class="level"></span>
+                </p>
+
+            </div>
+            <!-- details mobile -->
 
             <!-- list -->
             <ul class="list">
@@ -226,17 +207,14 @@
                 <select name="characterSelection" id="characterSelection">
                     <!-- select : options -->
                     <option value="default" id="defaultListItem">class selection</option>
-                    <option value="knight">knight</option>
-                    <option value="mercenary">mercenary</option>
+
+                    <!-- elden ring classes -->
+                    <option value="prophet">prophet</option>
                     <option value="warrior">warrior</option>
-                    <option value="herald">herald</option>
-                    <option value="thief">thief</option>
-                    <option value="assassin">assassin</option>
-                    <option value="sorcerer">sorcerer</option>
-                    <option value="pyromancy">pyromancy</option>
-                    <option value="cleric">cleric</option>
-                    <option value="deprived">deprived</option>
-                    <!-- select : options -->
+                    <option value="bloodwolf">blood wolf</option>
+                    <option value="champion">champion</option>
+                    <option value="enchanted">enchanted</option>
+                    
                 </select>
                 <!-- character selection -->
             </form>
@@ -358,6 +336,35 @@
     
     </main>
     <!-- main applicatiom wrapper -->
+
+    <!-- character overview [ === WORK-IN-PROGRESS === ] -->
+        <!-- character overview [ === WORK-IN-PROGRESS === ] -->
+        <section class="container" id="characterOverview">
+            <!-- stats overview -->
+            <div class="overview">
+
+                <!-- overview panels -->
+                <div class="panel">
+                    <!-- selected character image -->
+                    <img src="" alt="" class="characterClassImage">
+                    <!-- selected character image -->
+
+                    <!-- selected characer class -->
+                    <h4 class="characterClassName"></h4>
+                    <!-- selected characer class -->    
+                </div>
+                <div class="panel">
+                    <!-- character level -->
+                    <span class="level"></span>
+                    <!-- character level -->
+                </div>
+                <!-- overview panels -->
+            
+            </div>
+            <!-- stats overview -->
+        </section>
+        <!-- character overview [ === WORK-IN-PROGRESS === ] -->
+        <!-- character overview [ === WORK-IN-PROGRESS === ] -->
     
 </body>
 </html>

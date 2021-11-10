@@ -36,7 +36,7 @@ main {
   max-height: 100vh;
   min-height: 100vh;
   overflow: hidden;
-  background-image: url("background.png");
+  background-image: url("../assets/img/background.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: bottom;
@@ -143,17 +143,6 @@ section {
   width: 100%;
   border: var(--component);
 }
-section h3 {
-  color: var(--clr-main);
-  text-shadow: 1px 3px var(--clr-black);
-  letter-spacing: 0.25rem;
-  font-size: 1.85rem;
-}
-@media (min-height: 650px) {
-  section h3 {
-    padding-bottom: 1rem;
-  }
-}
 section .list {
   padding: 0.5rem;
   background: transparent;
@@ -243,7 +232,7 @@ article #exitButton {
   height: 100px;
   background: transparent;
   border: none;
-  color: yellow;
+  color: var(--clr-main);
   font-size: 1.65rem;
   font-weight: bold;
   text-shadow: 2px 2px var(--clr-black);
@@ -270,19 +259,19 @@ article .list .items {
   transition: 300ms all ease;
 }
 article .list .items:nth-child(1) {
-  background-image: url("Assets/class_prophet.PNG");
+  background-image: url("../assets/img/class_prophet.PNG");
 }
 article .list .items:nth-child(2) {
-  background-image: url("Assets/class_warrior.PNG");
+  background-image: url("../assets/img/class_warrior.PNG");
 }
 article .list .items:nth-child(3) {
-  background-image: url("Assets/class_bloodwolf.PNG");
+  background-image: url("../assets/img/class_bloodwolf.PNG");
 }
 article .list .items:nth-child(4) {
-  background-image: url("Assets/class_champion.PNG");
+  background-image: url("../assets/img/class_champion.PNG");
 }
 article .list .items:nth-child(5) {
-  background-image: url("Assets/class_enchantedknight.PNG");
+  background-image: url("../assets/img/class_enchantedknight.PNG");
 }
 article .list .items.active {
   position: absolute;
@@ -417,16 +406,35 @@ form select > option {
   text-align: center;
 }
 
-.level {
+.details-mobile {
+  width: 100%;
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.details-mobile h3 {
+  color: var(--clr-main);
+  font-size: 1.5rem;
+  letter-spacing: 0.25rem;
+  text-shadow: 1px 3px var(--clr-black);
+  padding-left: 1rem;
+  width: 60%;
+}
+.details-mobile .text {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  height: 50%;
-  border: 1px solid var(--clr-white);
-  border-radius: 8px;
   color: var(--clr-white);
-  font-size: 1.7em;
+  width: 40%;
+}
+.details-mobile .level {
+  padding: 0.25rem;
+  font-weight: bold;
+}
+.details-mobile img {
+  max-height: 65px;
+  max-width: 65px;
 }
 
 #playableCharacters {
@@ -434,10 +442,11 @@ form select > option {
   border: var(--component);
 }
 #playableCharacters .items h3 {
-  text-shadow: 2px 2px #635905;
+  text-shadow: 2px 2px #181614;
 }
 #playableCharacters .items.active h3 {
   transform: scale(2);
+  color: var(--clr-main);
   padding-bottom: 0.5rem;
 }
 

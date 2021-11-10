@@ -8,11 +8,22 @@
 
 */
 
-const attributes = [ 'vigor', 'mind', 'endurance', 'strength', 'dexterity', 'intelligence', 'faith', 'arcane' ]; // set an array for the attributes
-const classes = [ 'knight', 'mercenary', 'warrior', 'herald', 'thief', 'assassin', 'sorcerer', 'pyromancy', 'cleric', 'deprived' ]; // set an array for character classes
+const eldenRingClasses = [
+    // network test classes
+    'prophet', 'warrior', 'blood wolf', 'champion', 'enchanted knight'
+];
+const eldenRingClassesLevel = [
+    // network test classes
+    5, 8, 6, 10, 9
+];
 
+const attributes = [ 'vigor', 'mind', 'endurance', 'strength', 'dexterity', 'intelligence', 'faith', 'arcane' ]; // set an array for the attributes
 // create an object for the character class attributes
 let characterClassObject = {
+    // character info
+    Name: '',
+    Level: '',
+    // character stats
     Vigor: '',
     Mind: '',
     Endurance: '',
@@ -23,6 +34,49 @@ let characterClassObject = {
     Arcane: ''
 }
 console.log(characterClassObject); // test the character class object
+let prophetObject = new Object(characterClassObject); // create a new object for current selected player class
+createCharacterObjects = () => {
+    let prophetAttributes = [10, 8, 8, 9, 7, 9, 12, 10 ]; // pre-assign the [ PROPHET ] stat attributes into an array
+
+    // declare & create [ character-class ] objects
+    
+    let warriorObject = new Object(characterClassObject); // create a new object for current selected player class
+    let bloodwolfObject = new Object(characterClassObject); // create a new object for current selected player class
+    let championObject = new Object(characterClassObject); // create a new object for current selected player class
+    let enchantedObject = new Object(characterClassObject); // create a new object for current selected player class
+
+    
+    prophetObject.Name = 'Prophet';
+    prophetObject.Vigor = prophetAttributes[0];
+    prophetObject.Mind = prophetAttributes[1];
+    prophetObject.Endurance = prophetAttributes[2];
+    prophetObject.Strength = prophetAttributes[3];
+    prophetObject.Dexterity = prophetAttributes[4];
+    prophetObject.Intelligence = prophetAttributes[5];
+    prophetObject.Faith = prophetAttributes[6];
+    prophetObject.Arcane = prophetAttributes[7];
+
+    for ( let i = 0; i < eldenRingClassesLevel.length; i++) {
+        prophetObject.Level = eldenRingClassesLevel[0];
+        warriorObject.Level = eldenRingClassesLevel[1];
+        bloodwolfObject.Level = eldenRingClassesLevel[2];
+        championObject.Level = eldenRingClassesLevel[3];
+        enchantedObject.Level = eldenRingClassesLevel[4];
+
+
+        console.log(prophetObject.Level);
+    }
+    console.log(prophetObject);
+}
+
+createCharacterObjects();
+
+
+
+
+const classes = [ 'knight', 'mercenary', 'warrior', 'herald', 'thief', 'assassin', 'sorcerer', 'pyromancy', 'cleric', 'deprived' ]; // set an array for character classes
+
+
 
 assignKnightStats = () => {
 

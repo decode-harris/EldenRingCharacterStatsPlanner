@@ -82,10 +82,12 @@ resetAttributeStats = () => {
     // 2. select all the current attribute values
     // 3. revert the current values to the selected character starting stats
     // 4. display a message to the application 
+    let characterClassName = document.querySelector('.characterClassName-mobile');
 
     for(let i = 0; i < allAttributeValues.length; i++) {
         allAttributeValues[i].innerHTML = 0; // set all selected attribute values to 0 [ zero ]
         level.innerHTML = 0; // set level to default value of 0 [ zero ] or unselected
+        characterClassName.innerHTML = ''; // set character class name [ mobile ] to empty string
     }
     console.log('Function : resetAttributeStats active'); // test the function has been initiated
 
