@@ -8,9 +8,9 @@
 :root {
   --wireframe: 2px solid darkblue;
   --debugging: 2px solid darkred;
-  --component: 2px solid limegreen;
   --clr-black: #000;
   --clr-white: #FFF;
+  --clr-main: rgba(151, 124, 48, 0.938);
   --font-title: "Kanit", sans-serif;
   --font-text: "Poppins", sans-serif;
 }
@@ -22,15 +22,14 @@
     contains all application elements & components
 
     Main 
-        Header - Application Header         [ 15 vh ]
-        Aside - Component Controls          [ 05 vh ]
-        Section - Application Interaction   [ 70 vh ]
-        Footer - Application Information    [ 15 vh ]
+        Header - Application Header         [ 10 vh ]
+        Section - Application Interaction   [ 80 vh ]
+        Article - Character Information     [ 100 vh ] : overlay
+        Footer - Application Information    [ 10 vh ]
 */
 main {
   height: 100%;
   width: 100%;
-  background: #bebebe;
   font-family: var(--font-text);
   position: relative;
   z-index: 1;
@@ -64,14 +63,16 @@ main .overlay {
 
 */
 header {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  height: 15vh;
+  height: 10vh;
   padding: 1rem;
   z-index: 3;
   color: var(--clr-white);
+  border: var(--component);
 }
 header h2 {
   display: flex;
@@ -86,6 +87,7 @@ header .text {
   font-size: 0.85rem;
   text-align: center;
   font-style: italic;
+  text-transform: capitalize;
   z-index: 3;
 }
 
@@ -96,24 +98,28 @@ aside {
   align-items: center;
   z-index: 3;
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  height: 10vh;
-  width: 80px;
+  top: 0;
+  right: 0;
+  height: 10%;
+  width: 100px;
 }
 aside .btn {
-  background: var(--clr-white);
-  border: 1px solid var(--clr-black);
+  border: none;
   border-radius: 8px;
-  color: var(--clr-black);
   padding: 0.5rem;
-  letter-spacing: 2px;
+  color: var(--clr-white);
+  letter-spacing: 1px;
   text-transform: capitalize;
-  transition: 300ms all ease-in;
-  width: 100%;
+  transition: 200ms all ease-in;
+  background: transparent;
+  height: 60%;
+  width: 60%;
+}
+aside i {
+  font-size: 1.2rem;
 }
 aside .btn:hover {
-  transition: 300ms all ease-in-out;
+  transition: 100ms all ease-in-out;
   background: #FFF;
   color: #000;
 }
@@ -127,16 +133,33 @@ aside .btn:hover {
 */
 section {
   position: relative;
-  min-height: 70vh;
   padding: 1rem;
   z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+  border: var(--component);
+}
+section h3 {
+  color: var(--clr-main);
+  text-shadow: 1px 3px var(--clr-black);
+  letter-spacing: 0.25rem;
+  font-size: 1.85rem;
+}
+@media (min-height: 650px) {
+  section h3 {
+    padding-bottom: 1rem;
+  }
 }
 section .list {
   padding: 0.5rem;
   background: transparent;
-  border: 1px solid var(--clr-black);
   color: var(--clr-white);
   margin-top: 0.5rem;
+  width: 100%;
 }
 section .list .items {
   display: flex;
@@ -209,6 +232,7 @@ article {
   align-items: center;
   padding: 2rem;
   background: rgba(0, 0, 0, 0.6);
+  border: var(--component);
 }
 article #exitButton {
   position: absolute;
@@ -278,23 +302,24 @@ article .list .items.active {
 */
 footer {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 10vh;
   z-index: 5;
+  border: var(--component);
+}
+footer .list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
 }
 footer .btn {
   border: 1px solid var(--clr-white);
   border-radius: 8px;
   background: transparent;
   color: var(--clr-white);
-  height: 60px;
   letter-spacing: 2px;
   padding: 0.5rem;
   text-transform: capitalize;
-  width: 150px;
-  margin-top: 1rem;
 }
 
 /*
@@ -313,7 +338,9 @@ form {
   align-items: center;
   margin-top: 1rem;
   height: 10vh;
+  width: 100%;
   z-index: 4;
+  text-transform: uppercase;
 }
 form label {
   font-size: 1.2rem;
@@ -325,15 +352,21 @@ form select#characterSelection {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: right;
   height: 50px;
   width: 100%;
-  max-width: 250px;
+  max-width: 220px;
   background: transparent;
+  border: none;
+  border-radius: 2px 2px 6px 2px;
   color: var(--clr-white);
+  color: var(--clr-white);
+  font-weight: bold;
   font-size: 0.9rem;
   letter-spacing: 2px;
   text-transform: uppercase;
+  padding-right: 1rem;
+  background: var(--clr-main);
 }
 form option {
   text-transform: capitalize;

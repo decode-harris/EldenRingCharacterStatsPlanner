@@ -88,6 +88,7 @@ resetAttributeStats = () => {
         level.innerHTML = 0; // set level to default value of 0 [ zero ] or unselected
     }
     console.log('Function : resetAttributeStats active'); // test the function has been initiated
+
 };
 resetAttributeStats();
 /*
@@ -203,3 +204,8 @@ for (var i = 0; i < articleItems.length; i++) {
 
     });
 }
+
+
+// remove character overview element on mobile [ work in progress ]
+let characterOverview = document.querySelector('#characterOverview');
+characterOverview.style.display = 'none';

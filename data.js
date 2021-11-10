@@ -41,7 +41,7 @@ let deprivedInformation = [
 
 // character class reactive variables
 let characterClassImage = document.querySelector('.characterClassImage');
-let characterClassName = document.querySelector('.characterClassName');
+let characterClassName = document.querySelector('.characterClassName-mobile');
 let infos = document.querySelectorAll('.infos');
 
 let selectClass = document.querySelector('#characterSelection'); // declare the character selection [ select menu + options ]

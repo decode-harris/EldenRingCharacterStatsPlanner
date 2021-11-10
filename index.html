@@ -17,6 +17,8 @@
     <script defer src="data.js"></script>
     <!-- Lib : GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <!-- Lib : Icons -->
+    <script src="https://kit.fontawesome.com/4dff4a55ad.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -35,15 +37,19 @@
         <aside class="controls">
 
             <!-- control button [ reset stats ] -->
-            <button class="btn" id="resetButton">reset</button>
+            <button class="btn" id="resetButton">
+                <!-- icon : trash -->
+                <i class="far fa-trash-alt"></i>
+                <!-- icon : trash -->
+            </button>
             <!-- control button [ reset stats ] -->
         
         </aside>
         <!-- application controls -->
 
-        <!-- attributes calculator -->
-        <section class="container" id="attributesCalculator">
-
+        <!-- character overview [ === WORK-IN-PROGRESS === ] -->
+        <!-- character overview [ === WORK-IN-PROGRESS === ] -->
+        <section class="container" id="characterOverview">
             <!-- stats overview -->
             <div class="overview">
 
@@ -66,6 +72,16 @@
             
             </div>
             <!-- stats overview -->
+        </section>
+        <!-- character overview [ === WORK-IN-PROGRESS === ] -->
+        <!-- character overview [ === WORK-IN-PROGRESS === ] -->
+
+        <!-- attributes calculator -->
+        <section class="container" id="attributesCalculator">
+
+            <!-- character class name [ mobile ] -->
+            <h3 class="characterClassName-mobile"></h3>
+            <!-- character class name [ mobile ] -->
 
             <!-- list -->
             <ul class="list">
@@ -311,10 +327,28 @@
         <!-- application footer -->
         <footer class="footer">
 
-            <!-- information button [ switch application views ] -->
-            <button class="btn" id="informationButton">characters</button>
-            <!-- information button [ switch application views ] -->
-        
+            <!-- footer list -->
+            <ul class="list">
+                <!-- list items [ navigation ] -->
+                <li class="items">
+                    <!-- information button [ switch application views ] -->
+                    <button class="btn" id="informationButton">characters</button>
+                    <!-- information button [ switch application views ] -->
+                </li>
+                <li class="items">
+                    <!-- information button [ switch application views ] -->
+                    <button class="btn" id="informationButton">videogame</button>
+                    <!-- information button [ switch application views ] -->
+                </li>
+                <li class="items">
+                    <!-- information button [ switch application views ] -->
+                    <button class="btn" id="informationButton">calculator</button>
+                    <!-- information button [ switch application views ] -->
+                </li>
+                <!-- list items [ navigation ] -->
+            </ul>
+            <!-- footer list -->
+            
         </footer>
         <!-- application footer -->
 

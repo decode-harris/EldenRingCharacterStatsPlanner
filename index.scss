@@ -9,11 +9,15 @@
     // dev borders
     --wireframe: 2px solid darkblue;
     --debugging: 2px solid darkred;
-    --component: 2px solid limegreen;
+    // --component: 2px solid limegreen;
     
     // base colors
     --clr-black: #000;
     --clr-white: #FFF;
+
+    // app colors
+    --clr-main: rgba(151, 124, 48, 0.938); // mustard yellow
+    
     
     // base fonts
     --font-title: 'Kanit', sans-serif; // font-family: 'Kanit', sans-serif;
@@ -28,16 +32,14 @@
     contains all application elements & components
 
     Main 
-        Header - Application Header         [ 15 vh ]
-        Aside - Component Controls          [ 05 vh ]
-        Section - Application Interaction   [ 70 vh ]
-        Footer - Application Information    [ 15 vh ]
+        Header - Application Header         [ 10 vh ]
+        Section - Application Interaction   [ 80 vh ]
+        Article - Character Information     [ 100 vh ] : overlay
+        Footer - Application Information    [ 10 vh ]
 */
 main {
     height: 100%;
     width: 100%;
-    // padding: 1rem;
-    background: rgb(190, 190, 190);
     font-family: var(--font-text);
     position: relative;
     z-index: 1;
@@ -72,15 +74,19 @@ main {
 
 */
 header {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    height: 15vh;
+    height: 10vh;
     padding: 1rem;
     z-index: 3;
-    // background: rgba($color: #000000, $alpha: 0.6);
     color: var(--clr-white);
+
+    // dev border
+    border: var(--component);
+
     h2 {
         display: flex;
         justify-content: center;
@@ -94,6 +100,7 @@ header {
         font-size: 0.85rem;
         text-align: center;
         font-style: italic;
+        text-transform: capitalize;
         z-index: 3;
     }
 }
@@ -106,26 +113,30 @@ aside {
     align-items: center;
     z-index: 3;
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    height: 10vh;
-    width: 80px;
+    top: 0;
+    right: 0;
+    height: 10%;
+    width: 100px;
     
     // control buttons
     .btn {
-        background: var(--clr-white);
-        border: 1px solid var(--clr-black);
+        // border: 1px solid var(--clr-white);
+        border: none;
         border-radius: 8px;
-        color: var(--clr-black);
         padding: 0.5rem;
-        letter-spacing: 2px;
+        color: var(--clr-white);
+        letter-spacing: 1px;
         text-transform: capitalize;
-        transition: 300ms all ease-in;
-        width: 100%;
-        
+        transition: 200ms all ease-in;
+        background: transparent;
+        height: 60%;
+        width: 60%;
+    }
+    i {
+        font-size: 1.2rem;
     }
     .btn:hover {
-        transition: 300ms all ease-in-out;
+        transition: 100ms all ease-in-out;
         background: #FFF;
         color: #000;
     }
@@ -140,18 +151,41 @@ aside {
 */
 section {
     position: relative; // set container to position relative
-    // background: rgba($color: #000000, $alpha: 0.6);
-    min-height: 70vh;
     padding: 1rem;
     z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 80vh;
+    width: 100%;
+    
+    // dev border
+    border: var(--component);
+
+    h3 {
+        color: var(--clr-main);
+        text-shadow: 1px 3px var(--clr-black);
+        letter-spacing: 0.25rem;
+        font-size: 1.85rem;
+    }
+    @media (min-height: 650px) { // mobile height media query
+        h3 {
+            padding-bottom: 1rem;
+            // border: var(--component);
+        }
+    }
+
     // player statistics list
     .list {
         padding: 0.5rem;
         background: transparent;
-        border: 1px solid var(--clr-black);
+        // border: 1px solid var(--clr-black);
         color: var(--clr-white);
         margin-top: 0.5rem;
-        
+        width: 100%;
         // list items [ display as flex ]
         .items {
             display: flex;
@@ -233,6 +267,9 @@ article {
     padding: 2rem;
     background: rgba($color: #000000, $alpha: 0.6);
 
+    // dev border
+    border: var(--component);
+
     // article active panel [ exitButton ]
     #exitButton {
         position: absolute;
@@ -303,11 +340,20 @@ article {
 */
 footer {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 10vh;
     z-index: 5;
+
+    // footer list 
+    .list {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+    }
+    
+
+    // dev border
+    border: var(--component);
     
     // footer action button
     .btn {
@@ -315,12 +361,9 @@ footer {
         border-radius: 8px;
         background: transparent;
         color: var(--clr-white);
-        height: 60px;
         letter-spacing: 2px;
         padding: 0.5rem;
         text-transform: capitalize;
-        width: 150px;
-        margin-top: 1rem;
     }
 }
 
@@ -340,7 +383,9 @@ form {
     align-items: center;
     margin-top: 1rem;
     height: 10vh;
+    width: 100%;
     z-index: 4;
+    text-transform: uppercase;
     // remove label on mobile view
     label {
         font-size: 1.2rem;
@@ -353,16 +398,24 @@ form {
         display: flex;
         justify-content: center;
         align-items: center;
-        text-align: center;
+        text-align: right;
         height: 50px;
         width: 100%;
-        max-width: 250px;
+        max-width: 220px;
         
         background: transparent;
+        // border: 2.2px solid var(--clr-white);
+        border: none;
+        border-radius: 2px 2px 6px 2px;
         color: var(--clr-white);
+        color: var(--clr-white);
+        font-weight: bold;
         font-size: 0.9rem;
         letter-spacing: 2px;
         text-transform: uppercase;
+        padding-right: 1rem;
+
+        background: var(--clr-main);
     }
     option {
         text-transform: capitalize;
